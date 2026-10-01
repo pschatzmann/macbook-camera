@@ -4,7 +4,16 @@
 #
 # The driver is installed with DKMS, so it is rebuilt automatically for
 # every new kernel. Set FW_VER=1.43.0 to keep the older firmware.
+# Pass --force to reinstall the driver even if DKMS reports it as installed.
 set -euo pipefail
+
+force=()
+for arg in "$@"; do
+	case "$arg" in
+	--force) force=(--force) ;;
+	*) echo "Usage: $0 [--force]" >&2; exit 2 ;;
+	esac
+done
 
 cd "$(dirname "$(readlink -f "$0")")"
 
@@ -29,7 +38,7 @@ fi
 sudo rm -rf "$src"
 sudo mkdir -p "$src"
 git ls-files -z | sudo xargs -0 cp --parents -t "$src"
-sudo dkms install "facetimehd/$ver"
+sudo dkms install "facetimehd/$ver" ${force[@]+"${force[@]}"}
 
 # Copies from a plain "make install" would shadow the DKMS module
 sudo rm -f /lib/modules/*/updates/facetimehd.ko

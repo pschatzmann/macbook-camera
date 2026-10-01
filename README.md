@@ -53,6 +53,8 @@ cd macbook-camera
 
 Close any app that uses the camera before running it. To keep the older 1.43.0 firmware, run `FW_VER=1.43.0 ./install.sh`.
 
+If DKMS skips the driver with `Module facetimehd/... already installed`, run `./install.sh --force` to reinstall it anyway.
+
 ## Contents
 
 - **`bcwc_pcie`**: the driver. It points to the `fix-buffer-handling` branch of [pschatzmann/facetimehd](https://github.com/pschatzmann/facetimehd), which carries the fixes from [patjak/facetimehd#355](https://github.com/patjak/facetimehd/pull/355). Without them, apps that use the camera through PipeWire (browsers, video calls) fail or freeze. Once that PR is merged, the submodule can point to [patjak/facetimehd](https://github.com/patjak/facetimehd) again.
