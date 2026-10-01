@@ -8,6 +8,34 @@ To check whether your Mac has it:
 lspci -nn | grep 14e4:1570
 ```
 
+## Prerequisites
+
+`install.sh` needs the following programs:
+
+- **`git`**: to fetch the submodules.
+- **`make`**, **`gcc`** and the **headers for your running kernel**: to build the driver.
+- **`dkms`**: to install the driver and rebuild it for new kernels.
+- **`curl`** and **`xzcat`** (from xz): to download and unpack the camera files from Apple's macOS update.
+- **`cpio`**: only for the older firmware (`FW_VER=1.43.0`).
+- **`sudo`**: to install the firmware and the driver.
+
+`awk`, `dd`, `zcat` and `sha256sum` are needed too, but are present on almost every system.
+
+Install them with your package manager:
+
+```bash
+# Debian, Ubuntu, Linux Mint
+sudo apt install git build-essential linux-headers-$(uname -r) dkms curl xz-utils cpio
+
+# Fedora
+sudo dnf install git make gcc kernel-devel-$(uname -r) dkms curl xz cpio
+
+# Arch Linux
+sudo pacman -S git base-devel linux-headers dkms curl xz cpio
+```
+
+The firmware is downloaded from Apple, so you need an internet connection.
+
 ## Install
 
 ```bash
