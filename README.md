@@ -53,6 +53,15 @@ cd macbook-camera
 
 Close any app that uses the camera before running it. To keep the older 1.43.0 firmware, run `FW_VER=1.43.0 ./install.sh`.
 
+### After a kernel upgrade
+
+DKMS should rebuild the driver automatically when a new kernel is installed, but only if the headers for that kernel are installed too. If the camera doesn't work after a kernel upgrade, install the headers for the new kernel and run `./install.sh` again:
+
+```bash
+sudo apt install linux-headers-$(uname -r)   # Debian, Ubuntu
+./install.sh
+```
+
 If DKMS skips the driver with `Module facetimehd/... already installed`, run `./install.sh --force` to reinstall it anyway.
 
 ## Contents
