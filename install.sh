@@ -26,8 +26,8 @@ make clean >/dev/null
 make ${FW_VER:+FW_VER=$FW_VER}
 sudo make install
 
-echo "== Driver ($(git -C ../bcwc_pcie branch --show-current))"
-cd ../bcwc_pcie
+echo "== Driver ($(git -C ../facetimehd branch --show-current))"
+cd ../facetimehd
 ver=$(sed -n 's/^PACKAGE_VERSION=//p' dkms.conf)
 src=/usr/src/facetimehd-$ver
 

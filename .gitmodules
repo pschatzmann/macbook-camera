@@ -1,5 +1,5 @@
-[submodule "bcwc_pcie"]
-	path = bcwc_pcie
+[submodule "facetimehd"]
+	path = facetimehd
 	url = https://github.com/pschatzmann/facetimehd.git
 	branch = fix-buffer-handling
 [submodule "facetimehd-firmware"]

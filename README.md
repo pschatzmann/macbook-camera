@@ -66,5 +66,5 @@ If DKMS skips the driver with `Module facetimehd/... already installed`, run `./
 
 ## Contents
 
-- **`bcwc_pcie`**: the driver. It points to the `fix-buffer-handling` branch of [pschatzmann/facetimehd](https://github.com/pschatzmann/facetimehd), which carries the fixes from [patjak/facetimehd#355](https://github.com/patjak/facetimehd/pull/355). Without them, apps that use the camera through PipeWire (browsers, video calls) fail or freeze. Once that PR is merged, the submodule can point to [patjak/facetimehd](https://github.com/patjak/facetimehd) again.
+- **`facetimehd`**: the driver. It points to the `fix-buffer-handling` branch of [pschatzmann/facetimehd](https://github.com/pschatzmann/facetimehd), which carries the fixes from [patjak/facetimehd#355](https://github.com/patjak/facetimehd/pull/355). Without them, apps that use the camera through PipeWire (browsers, video calls) fail or freeze. Once that PR is merged, the submodule can point to [patjak/facetimehd](https://github.com/patjak/facetimehd) again.
 - **`facetimehd-firmware`**: [patjak/facetimehd-firmware](https://github.com/patjak/facetimehd-firmware), which extracts the firmware and sensor calibration files.
